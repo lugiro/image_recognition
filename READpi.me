@@ -1,0 +1,56 @@
+imgPiInputToWeb.py
+Skrive tekst til fil i katalog
+/usr/lib/cgi-bin/pi/text0.txt
+hvor Perl-filen start.pl oppdaterer innhold
+paa web-side hvert sekund
+Skrift: Verdana 100pt
+
+
+imgPiCamCapture.py
+Tar bilde med Pi Camera
+Cropp til rett storrelse (tilpasse skjerm)
+Lagrer graa fil: imageCam_grey.png
+
+imgPiCaptureSaveGrayAndArray01.py
+Tar bilde med Pi Camera
+Cropp til rett storrelse (tilpasse skjerm)
+Lagrer graa fil: imageCam_grey.png
+Omformer imageCam_grey.png til camtall.txt
+30x40 tekst matrise paa fil
+
+imgPiCompareImageArraysLetter01.py
+Utfoerer imgPiCaptureSaveGrayAndArray01.py
+Sjekker med store bokstaver og tall
+Sjekker for ett tegn
+Skriver ut tegn
+
+imgPiMakeTemplate01.py
+Lager templates for alle tegn
+Store bokstaver og tall
+Lagres under katalog /template
+
+
+imgPiTestQuality01.py
+Sjekker om det er treff paa alle template-tegn
+Store bokstaver og tall
+
+imgPiFindLinesAndLetters01.py
+Utfoerer imgPiCaptureSaveGrayAndArray01.py
+Identifisere alle linjer
+Deretter identifisere alle tegn i hver linje
+Setter sammen alle tegn til en setning
+Setning gaar via espeak til hoytaler
+
+
+f_img_coa.py
+Funksjon som importeres i andre Python-filer
+Calculate Objekt Array
+Beregner en 30x40 tekst array av objekt/tegn
+Input: image fil graa
+Output: camtall.txt
+
+f_img_cial.py
+Funksjon som importeres i andre Python-filer
+Compare Image Arrays Letter
+Sammenligne camtall.txt med alle template filer
+Output: tegn
