@@ -3,12 +3,12 @@ Image recognition with Python<br>
 <br>
 With these moduels you can recognize text written on a 10" tablet<br>
 <br>
-1. Use web and send tekst to the tablet<br>
+-1. Use web and send tekst to the tablet<br>
 Install Apache on Raspberry Pi<br>
 <br>
-2. Capture image of the tablet with Pi CAmera<br>
+-2. Capture image of the tablet with Pi CAmera<br>
 <br>
-3. Image recognition with Python<br>
+-3. Image recognition with Python<br>
 Cropp the image to fit the size of the screen area on the tablet<br>
 Convert image til gray scale<br>
 <br>
