@@ -16,9 +16,11 @@ img = Image.open(r"imageCam.jpg")
 width, height = img.size
 print width, height
 
-cropped = img.crop((115,100,515,300))
+## IMPORTANT Cropped area must containe white background
+## White color is greater than 125 on grey colour scale
+cropped = img.crop((120,100,510,300))
 
-# applying grayscale method
+# applying greyscale method
 gray_image = ImageOps.grayscale(cropped)
 gray_image.save('imageCam_grey.png')
 

@@ -4,10 +4,6 @@ from picamera import PiCamera
 import time
 import f_img_coa
 
-##
-##
-
-#os.system("sudo fswebcam imageCam.jpg 2> /dev/null")
 camera = PiCamera()
 
 camera.resolution = (600, 350)
@@ -17,20 +13,24 @@ camera.resolution = (600, 350)
 #camera.image_effect = "watercolor"
 #time.sleep(1)
 camera.capture("imageCam.jpg")
-print("Cam done.")
 
 # creating a image object
 img = Image.open(r"imageCam.jpg")
 width, height = img.size
-print width, height
 
-cropped = img.crop((115,100,515,300))
+## IMPORTANT Cropped area must containe white background
+## White color is greater than 125 on grey colour scale
+cropped = img.crop((120,100,510,300))
 
-# applying grayscale method
+# applying greyscale method
 gray_image = ImageOps.grayscale(cropped)
 gray_image.save('imageCam_grey.png')
 
 width, height = cropped.size
-print "cam cropped size x,y ", width, height
 
+print "Cropped gray image done"
+
+## Convert image file (.png) to text array file (camtall.txt)
 f_img_coa.calculate_objekt_array("imageCam_grey.png","camtall.txt")
+
+print "Camtall done"

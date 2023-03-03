@@ -19,9 +19,6 @@ font = "Verdana"
 
 for z in range(num_of_elements) :
 
-    #font = raw_input("Enter font: ")
-    #letter = raw_input("Enter letter: ")
-
     file_name_template = directory + prefix + font + letterNum[z] + ".txt"
     print file_name_template
 
@@ -31,7 +28,8 @@ for z in range(num_of_elements) :
 
     time.sleep(2)
 
-    os.system("python imgPiCaptureSaveGrayAndArray01.py")     #Tar bilde med PiCam og lagre graa
+    ## Capture and save image and make a text array (camtall.txt)
+    os.system("python imgPiCaptureSaveGrayAndArray01.py")
 
     cmd = "cp camtall.txt " + file_name_template
     os.system(cmd)

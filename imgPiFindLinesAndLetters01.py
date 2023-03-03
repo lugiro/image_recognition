@@ -3,9 +3,10 @@ import f_img_coa
 import f_img_cial
 import os
 
+## Capture image and save in text array
 os.system("python imgPiCaptureSaveGrayAndArray01.py")
 
-###Identifisere total hoyde for hele teksten
+## Calculate total height of the image
 imageC = Image.open(r"imageCam_grey.png")
 widthC, heightC = imageC.size
 
@@ -19,29 +20,28 @@ for y in range(heightC) :
         if pixfarge <  125:
            arrayLine[y] = 1
 
-#print arrayLine
 
-
-###Identifisere hoyde for hver linje, beregner antall linjer
-###Lagrer hver linje i lineArray, med 0 eller 1, (hvit eller sort)
+## Calculate height foor each line and numbers of lines
+## Save line in lineArray 0 or 1 (white or black)
 alnum = 0
 lstartflag = 0
 totnumline, linestartstop = (20, 2)
 lineArray = [[0 for i in range(linestartstop)] for j in range(totnumline)]
 for y in range(heightC) :
-    if arrayLine[y] == 1 and lstartflag == 0:   #Beregner startpkt for linje
+    if arrayLine[y] == 1 and lstartflag == 0:    #Calculate upper start point of the line
        lineArray[alnum][0] = y
        lstartflag = 1
        alnum = alnum + 1
-    if arrayLine[y] == 0 and lstartflag == 1:   #Beregner stoppkt for linje
+    if arrayLine[y] == 0 and lstartflag == 1:    #Calculate lower stop point of the line
        lineArray[alnum-1][1] = y
        lstartflag = 0
-    if y == heightC-1 and lstartflag == 1:       #Korreksjon ved enden av image
+    if y == heightC-1 and lstartflag == 1:       #Correction at the lower end of the image
        lineArray[alnum-1][1] = y+1
 
 numline = alnum
-print numline
+print "Number of lines",numline
 
+## Save cropped lines
 for lnum in range(numline) :
     line_file = "line" + str(lnum) + ".png"
     print line_file
@@ -49,14 +49,10 @@ for lnum in range(numline) :
     croppedline.save(line_file)
 
 
+## For each line calculate number of objects/characters 
 sentence = ""
 for lnum in range(numline) :
     line_file = "line" + str(lnum) + ".png"
-    ####################################
-    ###Beregne total bredde for linje
-    #antH = 0
-
-    #imageg = Image.open(r"imageCam_grey.png")
     imageg = Image.open(line_file)
     width, height = imageg.size
 
@@ -71,11 +67,8 @@ for lnum in range(numline) :
             if pixfarge <  125:
                arrayCol[x] = 1
 
-    #print arrayCol
-
-
-    ###Identifisere bredde for hvert objekt/bokstav og antall objekt 
-    ###Lagrer hvert object i objArray, med 0 eller 1, (hvit eller sort)
+    ## Calculate width for each objects/characters and number of objects in each line
+    ## Save objects in objArray, 0 or 1 (white or black)
     aonr = 0
     ostartflag = 0
     snum = 0
@@ -84,26 +77,24 @@ for lnum in range(numline) :
     totantobj, startstop = (20, 2)
     objArray = [[0 for i in range(startstop)] for j in range(totantobj)]
     for x in range(width) :
-        if arrayCol[x] == 1 and ostartflag == 0:   #Beregner startpkt for tegn
+        if arrayCol[x] == 1 and ostartflag == 0:      #Calculate left start point for character
             objArray[aonr][0] = x
             ostartflag = 1
             aonr = aonr + 1
-            #print x
-        if arrayCol[x] == 0 and ostartflag == 1:   #Beregner stoppkt for tegn
+        if arrayCol[x] == 0 and ostartflag == 1:      #Calculate right stop point for charactern
             objArray[aonr-1][1] = x
             ostartflag = 0
-            #print x
-        if x == width-1 and ostartflag == 1:       #Korreksjon ved enden av image
+        if x == width-1 and ostartflag == 1:          #Correction at right end of line image
             objArray[aonr-1][1] = x+1
 
-        if arrayCol[x] == 0 and  arrayCol[x-1] == 1:  #Beregner mellomrom mellom tegn
-#           print "test",x 
+        if arrayCol[x] == 0 and  arrayCol[x-1] == 1:
             numzero = 0
-            if x+10 > width:                        #Spesialbehandling ved image slutt
+            if x+10 > width:                          #Calcultae space bethween characters
                 space[snum] = aonr
                 aonr = aonr + 1
-                snum = snum + 1 
-            else:
+                snum = snum + 1
+            else:                                     #Special handling at right end of line image
+
                 for t in range(10) :
                     if arrayCol[x+t] == 0:
                         numzero = numzero + 1
@@ -111,42 +102,36 @@ for lnum in range(numline) :
                     space[snum] = aonr
                     aonr = aonr + 1
                     snum = snum + 1
-#                    print "space", aonr, snum
 
     antobj = aonr
-    print antobj
 
-    #print snum
-    #print space[0], space[1]
-    #print width
-    #print objArray
-
+    # For each characters compare with template and make sentence
     linesentence = ""
     snum = 0
     for lnum in range(antobj) :
         if space[snum] == lnum:
             linesentence = linesentence + "_"
-#            print "spacefile",space[snum],snum,aonr
             snum = snum +1
         else:
             letter_file = "letter" + str(lnum) + ".png"
-#           print letter_file
             croppedobj1 = imageg.crop((objArray[lnum][0],0,objArray[lnum][1],height))
             croppedobj1.save(letter_file)
 
             letterArray = "letterCam" + str(lnum) +".txt"
+
             f_img_coa.calculate_objekt_array(letter_file,"camtall.txt")
 
             tegn = f_img_cial.imgCompareImageArraysLetter()
-            #print tegn
 
             linesentence = linesentence + tegn
-#        print linesentence
 
     sentence = sentence + linesentence
 
+    print "Line - calculate and compare char", antobj
+
 print sentence
 
-#cmd = "espeak -p99 -vno+m5 -g2 -s140 " + sentence + " 2>/dev/null"
-cmd = "espeak -p90 -ven+m5 -g2 -s140 " + sentence + " 2>/dev/null"
+## Espeak - convert text to speech
+cmd = "espeak -p99 -vno+m5 -g2 -s140 " + sentence + " 2>/dev/null"
+#cmd = "espeak -p90 -ven+m5 -g2 -s140 " + sentence + " 2>/dev/null"
 os.system(cmd)

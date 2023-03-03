@@ -1,4 +1,4 @@
-#Input to web - start.pl - Samsung tablet - 192.168.1.75/cgi-bin/start.no
+#Input to web - start.pl -  tablet - IP-adr/cgi-bin/pi/start.no
 
 while True:
     letter = raw_input("Enter letter: ")
