@@ -8,7 +8,7 @@ Image recognition with Python<br>
 <br>
 Main file:<br>
 
-**imgPiFindLinesAndLetters01.py<br>
+**imgPiFindLinesAndLetters01.py**<br>
 - Capture image with Pi Camera<br>
 - Cropp image to area according to screen on tablet<br>
 - Save grey file: imageCam_grey.png<br>
