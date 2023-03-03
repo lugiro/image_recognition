@@ -6,7 +6,7 @@ Install Apache on Raspberry Pi<br>
 Capture image of the tablet with Pi CAmera<br>
 Image recognition with Python<br>
 <br>
-###Main file:<br>
+### Main file:<br>
 
 **imgPiFindLinesAndLetters01.py**<br>
 - Capture image with Pi Camera<br>
