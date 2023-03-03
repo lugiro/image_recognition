@@ -1,44 +1,47 @@
 # image_recognition
-### Image recognition with Python<br>
-<br>
-With these modules you can recognize text written on a 10" tablet.<br>Use web and send text to the tablet.<br>
-Install Apache on Raspberry Pi<br>
-Capture image of the tablet with Pi CAmera<br>
-Image recognition with Python<br>
-<br>
-### Main file:<br>
+### Image recognition with Python  
 
-**imgPiFindLinesAndLetters01.py**<br>
-- Capture image with Pi Camera<br>
-- Cropp image to area according to screen on tablet<br>
-- Save grey file: imageCam_grey.png<br>
-- Convert imageCam_grey.png to camtall.txt 30x40 text matrix on file<br>
-- Calculate lines<br>
-- Calculate characters on each line<br>
-- Put together characters to a sentence<br>
-- Sentence sent to espeak (text to speech)<br>
+With these modules you can recognize text written on a 10" tablet  
+ 
 
-<br>
-**Equipment:**<br>
-- Raspberry Pi<br>
-- Raspberri Pi Camera v2<br>
-- Tablett 10"<br>
-- Speaker<br>
-<br>
-Installation of Pi Camera on Raspbery Pi:<br>
-https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/4<br>
-<br>
-Installation Python modules<br>
-sudo apt-get install python-picamera python3-picamera<br>
-<br>
-Insttalation espeak (Text To Speech)<br>
-sudo apt-get install espeak<br>
-<br>
-Espeak command options:<br>
-https://espeak.sourceforge.net/commands.html<br>
-<br>
-Example espeak:<br>
-espeak -p99 -ven+m5 -g2 AS YOU CAN SEE AND HEAR I CAN NOW READ THIS TEXT 2>/dev/null<br>
-<br>
-Youtube (Text To Speech):<br>
-https://youtu.be/LAvYszaxNuI<br>
+### Main file:    
+
+**imgPiFindLinesAndLetters01.py**
+- Capture image with Pi Camera
+- Cropp image to area according to screen on tablet
+- Save grey file: imageCam_grey.png
+- Convert imageCam_grey.png to camtall.txt 30x40 text matrix on file
+- Calculate lines
+- Calculate characters on each line
+- Put together characters to a sentence
+- Sentence sent to espeak (text to speech). 
+  
+**Equipment:**
+- Raspberry Pi
+- Raspberri Pi Camera v2
+- Tablett 10"
+- Speaker
+
+Installation of Pi Camera on Raspbery Pi:  
+https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/4  
+  
+Installation Python modules  
+sudo apt-get install python-picamera python3-picamera  
+  
+Insttalation espeak (Text To Speech)  
+sudo apt-get install espeak  
+  
+Espeak command options:  
+https://espeak.sourceforge.net/commands.html  
+  
+Example espeak:  
+espeak -p99 -ven+m5 -g2 AS YOU CAN SEE AND HEAR I CAN NOW READ THIS TEXT 2>/dev/null  
+  
+Youtube (Text To Speech):  
+https://youtu.be/LAvYszaxNuI  
+
+**Use tablet to write text**  
+Use web and send text to the tablet  
+Install Apache on Raspberry Pi  
+Capture image of the tablet screen with Pi Camera  
+
