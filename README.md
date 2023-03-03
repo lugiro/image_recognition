@@ -8,16 +8,15 @@ Image recognition with Python<br>
 <br>
 Main file:<br>
 
-<strong>imgPiFindLinesAndLetters01.py</strong><br>
-Capture image with Pi Camera<br>
-Cropp image to area according to screen on tablet<br>
-Save grey file: imageCam_grey.png<br>
-Convert imageCam_grey.png to camtall.txt<br>
-30x40 text matrix on file<br>
-Calculate lines<br>
-Calculate characters on each line<br>
-Put together characters to a sentence<br>
-Sentence sent to espeak (text to speech)<br>
+**imgPiFindLinesAndLetters01.py<br>
+- Capture image with Pi Camera<br>
+- Cropp image to area according to screen on tablet<br>
+- Save grey file: imageCam_grey.png<br>
+- Convert imageCam_grey.png to camtall.txt 30x40 text matrix on file<br>
+- Calculate lines<br>
+- Calculate characters on each line<br>
+- Put together characters to a sentence<br>
+- Sentence sent to espeak (text to speech)<br>
 
 <br>
 Equipment:<br>
