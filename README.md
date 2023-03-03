@@ -1,12 +1,12 @@
 # image_recognition
-Image recognition with Python<br>
+### Image recognition with Python<br>
 <br>
 With these modules you can recognize text written on a 10" tablet.<br>Use web and send text to the tablet.<br>
 Install Apache on Raspberry Pi<br>
 Capture image of the tablet with Pi CAmera<br>
 Image recognition with Python<br>
 <br>
-Main file:<br>
+###Main file:<br>
 
 **imgPiFindLinesAndLetters01.py**<br>
 - Capture image with Pi Camera<br>
@@ -19,11 +19,11 @@ Main file:<br>
 - Sentence sent to espeak (text to speech)<br>
 
 <br>
-Equipment:<br>
-Raspberry Pi<br>
-Raspberri Pi Camera v2<br>
-Tablett 10"<br>
-Speaker<br>
+**Equipment:**<br>
+- Raspberry Pi<br>
+- Raspberri Pi Camera v2<br>
+- Tablett 10"<br>
+- Speaker<br>
 <br>
 Installation of Pi Camera on Raspbery Pi:<br>
 https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/4<br>
