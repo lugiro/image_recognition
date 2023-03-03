@@ -4,6 +4,10 @@
 With these modules you can recognize text written on a 10" tablet  
 See picture of test rig: irTestRig01.jpg  
 
+#### IMPORTANT  
+Cropped image area used for text recognition must containe white background  
+White color is defined as greater than 125 on grey colour scale  
+
 ### Main file:    
 
 **imgPiFindLinesAndLetters01.py**
