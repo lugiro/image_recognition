@@ -2,7 +2,7 @@
 ### Image recognition with Python  
 
 With these modules you can recognize text written on a 10" tablet  
- 
+See picture of test rig: irTestRig01.jpg  
 
 ### Main file:    
 
