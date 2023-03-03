@@ -28,7 +28,7 @@ https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/4
 Installation Python modules  
 sudo apt-get install python-picamera python3-picamera  
   
-Insttalation espeak (Text To Speech)  
+Installation espeak (Text To Speech)  
 sudo apt-get install espeak  
   
 Espeak command options:  
